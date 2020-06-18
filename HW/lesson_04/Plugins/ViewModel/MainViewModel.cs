@@ -8,33 +8,34 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ViewModel
 {
-    public class MainViewModel : Interface.IMainApp, INotifyPropertyChanged
+    public class MainViewModel : INotifyPropertyChanged
     {
-        private Bitmap _img;
-        public Bitmap Image
+        private Model.ImageContainer _img = new Model.ImageContainer();
+        public Model.ImageContainer Image
         {
             get { return _img; }
             set { SetProperty(ref _img, value); }
         }
 
+        private readonly object _locker = new object();
 
         #region Image Methods
         public void OpenImgIn(PictureBox container)
         {
-            OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = "Graphical files (*.bmp;*.jpg;*.gif)|*.bmp;*.jpg;*.gif;*.png";
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Graphical files (*.bmp;*.jpg;*.gif)|*.bmp;*.jpg;*.gif;*.png";
 
-            if (dlg.ShowDialog() == DialogResult.OK)
+            if (ofd.ShowDialog() == DialogResult.OK)
                 try
                 {
-                    Bitmap bmp = new Bitmap(dlg.FileName);
-                    container.Image = bmp;
+                    Bitmap bmp = new Bitmap(ofd.FileName);
+                    Image.Image = bmp;
+                    container.Image = Image.Image;
                 }
                 catch (Exception ex)
                 {
@@ -43,7 +44,7 @@ namespace ViewModel
 
         }
 
-        public void SaveImgToFile(Bitmap image)
+        public void SaveImgToFile()
         {
             using (SaveFileDialog ofd = new SaveFileDialog())
             {
@@ -52,7 +53,7 @@ namespace ViewModel
                 ofd.FileName = "newImage";
                 ofd.FilterIndex = 1;
                 ofd.RestoreDirectory = true;
-                if (image != null)
+                if (Image.Image != null)
                 {
                     if (ofd.ShowDialog() == DialogResult.OK && !string.IsNullOrEmpty(ofd.FileName))
                     {
@@ -79,7 +80,7 @@ namespace ViewModel
                                     break;
                             }
 
-                            image.Save(fs, frmt);
+                            Image.Image.Save(fs, frmt);
                             fs.Close();
                         }
                         catch (Exception ex)
@@ -100,14 +101,17 @@ namespace ViewModel
 
         private readonly string _plaginDir = Path.Combine(Directory.GetCurrentDirectory(), "Plugins");
 
-        public async Task<bool> PluginRunAsync(string pluginName) => await Task.Factory.StartNew(() => PluginRun(pluginName, this));
+        public async Task<bool> PluginRunAsync(string pluginName) => await Task.Factory.StartNew(() => PluginRun(pluginName, Image));
 
-        public bool PluginRun(string pluginName, Interface.IMainApp runOn)
+        public bool PluginRun(string pluginName, Interface.IModel runOn)
         {
             try
             {
                 Interface.IPlugin plugin = (Interface.IPlugin)_plugins[pluginName];
-                plugin.Transform(runOn);
+                lock (_locker)
+                {
+                    plugin.Transform(runOn);
+                }
                 return true;
             }
             catch (Exception ex)

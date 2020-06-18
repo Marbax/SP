@@ -3,7 +3,7 @@
 
 namespace Interface
 {
-    public interface IMainApp
+    public interface IModel
     {
         Bitmap Image { get; set; }
     }

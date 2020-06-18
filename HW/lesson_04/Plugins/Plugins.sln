@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrayScalePlugin", "GrayScal
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModel", "ViewModel\ViewModel.csproj", "{8FDAAADB-43E2-4C6E-BFE2-7A782C3BDBF0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{B9776D87-0618-454A-A06C-225C03BE3D28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{8FDAAADB-43E2-4C6E-BFE2-7A782C3BDBF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FDAAADB-43E2-4C6E-BFE2-7A782C3BDBF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FDAAADB-43E2-4C6E-BFE2-7A782C3BDBF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9776D87-0618-454A-A06C-225C03BE3D28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9776D87-0618-454A-A06C-225C03BE3D28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9776D87-0618-454A-A06C-225C03BE3D28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9776D87-0618-454A-A06C-225C03BE3D28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

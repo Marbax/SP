@@ -11,7 +11,7 @@ namespace BlackAndWhitePlugin
 
         public string Author => "Marbax";
 
-        public void Transform(IMainApp app)
+        public void Transform(IModel app)
         {
             Bitmap bitmap = app.Image;
 

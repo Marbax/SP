@@ -32,11 +32,11 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMIOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMISaveTo = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMIUpdateFilters = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMIFilters = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMISupport = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMIAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.TSMIUpdateFilters = new System.Windows.Forms.ToolStripMenuItem();
-            this.TSMISaveTo = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -76,9 +76,23 @@
             // TSMIOpen
             // 
             this.TSMIOpen.Name = "TSMIOpen";
-            this.TSMIOpen.Size = new System.Drawing.Size(180, 22);
+            this.TSMIOpen.Size = new System.Drawing.Size(113, 22);
             this.TSMIOpen.Text = "Open";
             this.TSMIOpen.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
+            // 
+            // TSMISaveTo
+            // 
+            this.TSMISaveTo.Name = "TSMISaveTo";
+            this.TSMISaveTo.Size = new System.Drawing.Size(113, 22);
+            this.TSMISaveTo.Text = "Save To";
+            this.TSMISaveTo.Click += new System.EventHandler(this.TSMISaveTo_Click);
+            // 
+            // TSMIUpdateFilters
+            // 
+            this.TSMIUpdateFilters.Name = "TSMIUpdateFilters";
+            this.TSMIUpdateFilters.Size = new System.Drawing.Size(91, 20);
+            this.TSMIUpdateFilters.Text = "Update Filters";
+            this.TSMIUpdateFilters.Click += new System.EventHandler(this.TSMIUpdate_Click);
             // 
             // TSMIFilters
             // 
@@ -97,23 +111,9 @@
             // TSMIAbout
             // 
             this.TSMIAbout.Name = "TSMIAbout";
-            this.TSMIAbout.Size = new System.Drawing.Size(180, 22);
+            this.TSMIAbout.Size = new System.Drawing.Size(107, 22);
             this.TSMIAbout.Text = "About";
             this.TSMIAbout.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
-            // 
-            // TSMIUpdateFilters
-            // 
-            this.TSMIUpdateFilters.Name = "TSMIUpdateFilters";
-            this.TSMIUpdateFilters.Size = new System.Drawing.Size(91, 20);
-            this.TSMIUpdateFilters.Text = "Update Filters";
-            this.TSMIUpdateFilters.Click += new System.EventHandler(this.TSMIUpdate_Click);
-            // 
-            // TSMISaveTo
-            // 
-            this.TSMISaveTo.Name = "TSMISaveTo";
-            this.TSMISaveTo.Size = new System.Drawing.Size(180, 22);
-            this.TSMISaveTo.Text = "Save To";
-            this.TSMISaveTo.Click += new System.EventHandler(this.TSMISaveTo_Click);
             // 
             // MainForm
             // 
@@ -123,6 +123,7 @@
             this.Controls.Add(this.pbImage);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Plugins";
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();

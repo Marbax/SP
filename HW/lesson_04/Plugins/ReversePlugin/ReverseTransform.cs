@@ -16,7 +16,7 @@ namespace ReversePlugin
             get { return "Proger"; }
         }
 
-        public void Transform(Interface.IMainApp app)
+        public void Transform(Interface.IModel app)
         {
             Bitmap bitmap = app.Image;
 
