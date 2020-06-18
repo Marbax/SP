@@ -50,7 +50,7 @@
 
 [Workin with reflection and assembly](CW/lesson_03/reflex "CW\lesson_03\reflex")   
 
-[MVVM,WinForms,WPF with plugins](HW/lesson_03/Plugins "HW\lesson_03\Plugins")   
+[MVVM,WinForms,WPF, PostBuildEvent with plugins](HW/lesson_03/Plugins "HW\lesson_03\Plugins")   
 
 ---
 

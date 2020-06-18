@@ -37,6 +37,7 @@
             this.TSMIFilters = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMISupport = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMIAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMISource = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -103,7 +104,8 @@
             // TSMISupport
             // 
             this.TSMISupport.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TSMIAbout});
+            this.TSMIAbout,
+            this.TSMISource});
             this.TSMISupport.Name = "TSMISupport";
             this.TSMISupport.Size = new System.Drawing.Size(61, 20);
             this.TSMISupport.Text = "Support";
@@ -111,9 +113,16 @@
             // TSMIAbout
             // 
             this.TSMIAbout.Name = "TSMIAbout";
-            this.TSMIAbout.Size = new System.Drawing.Size(107, 22);
+            this.TSMIAbout.Size = new System.Drawing.Size(180, 22);
             this.TSMIAbout.Text = "About";
             this.TSMIAbout.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
+            // 
+            // TSMISource
+            // 
+            this.TSMISource.Name = "TSMISource";
+            this.TSMISource.Size = new System.Drawing.Size(180, 22);
+            this.TSMISource.Text = "Source";
+            this.TSMISource.Click += new System.EventHandler(this.TSMISource_Click);
             // 
             // MainForm
             // 
@@ -145,6 +154,7 @@
         private System.Windows.Forms.ToolStripMenuItem TSMIAbout;
         private System.Windows.Forms.ToolStripMenuItem TSMIUpdateFilters;
         private System.Windows.Forms.ToolStripMenuItem TSMISaveTo;
+        private System.Windows.Forms.ToolStripMenuItem TSMISource;
     }
 }
 

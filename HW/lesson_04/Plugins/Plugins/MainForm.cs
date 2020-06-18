@@ -12,7 +12,7 @@ namespace Plugins
 {
     public partial class MainForm : Form
     {
-        private MainViewModel _mvm = new MainViewModel();
+        private readonly MainViewModel _mvm = new MainViewModel();
 
         public Bitmap Image
         {
@@ -25,6 +25,7 @@ namespace Plugins
             InitializeComponent();
 
             _ = _mvm.UpdatePluginsAsync(TSMIFilters, OnPluginClick);
+            TSMIFilters.Enabled = TSMISaveTo.Enabled = TSMIUpdateFilters.Enabled = false;
         }
 
         #region Events
@@ -40,11 +41,20 @@ namespace Plugins
                 MessageBox.Show($"Plugin \"{pluginName}\" isn't available at this very moment.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void OpenToolStripMenuItem_Click(object sender, EventArgs e) => _mvm.OpenImgIn(pbImage);
+        private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _mvm.OpenImgIn(pbImage);
+            TSMIFilters.Enabled = TSMISaveTo.Enabled = TSMIUpdateFilters.Enabled = true;
+        }
 
         private void TSMIUpdate_Click(object sender, EventArgs e) => _ = _mvm.UpdatePluginsAsync(TSMIFilters, OnPluginClick);
 
         private void TSMISaveTo_Click(object sender, EventArgs e) => _mvm.SaveImgToFile();
+
+        private void TSMISource_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Marbax/SP/tree/master/HW/lesson_04/Plugins");
+        }
         #endregion
 
     }
